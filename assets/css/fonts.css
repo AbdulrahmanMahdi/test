@@ -1,0 +1,27 @@
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/lato-regular/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: Lato;
+  font-style: bold;
+  font-weight: bold;
+  src: url("../fonts/lato-bold/Lato-Bold.ttf");
+}
+
+@font-face {
+  font-family: OpenSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/open-sans-regular/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: OpenSans;
+  font-style: bold;
+  font-weight: bold;
+  src: url("../fonts/open-sans-bold/OpenSans-Bold.ttf");
+}

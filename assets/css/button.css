@@ -1,0 +1,99 @@
+/* ---------- primary and secondary buttons ---------- */
+
+.gov-btn-primary-lg,
+.gov-btn-secondary-lg {
+  padding: 12px 24px;
+  border-radius: 26px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.gov-btn-primary-md,
+.gov-btn-secondary-md {
+  padding: 12px 24px;
+  border-radius: 23px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.gov-btn-primary-md,
+.gov-btn-primary-lg {
+  border: none;
+  background-color: var(--blue-i500);
+  color: var(--white);
+}
+
+.gov-btn-primary-md:hover,
+.gov-btn-primary-lg:hover {
+  background-color: var(--blue-i900);
+}
+
+.gov-btn-secondary-md,
+.gov-btn-secondary-lg {
+  border: 1px solid var(--blue-i500);
+  background-color: var(--white);
+  color: var(--blue-i500);
+}
+
+.gov-btn-primary-md:disabled,
+.gov-btn-primary-lg:disabled,
+.gov-btn-secondary-md:hover,
+.gov-btn-secondary-lg:hover {
+  background-color: var(--blue-i300);
+}
+
+/* ---------- icon buttons ---------- */
+
+.gov-btn-icon-primary {
+  padding: 10px 12.35px;
+  border: none;
+  background-color: var(--white);
+  color: var(--blue-i500);
+}
+
+.gov-btn-icon-primary:hover {
+  color: var(--blue-i900);
+}
+
+/* ---------- flat buttons ---------- */
+
+.btn-text-flat,
+.btn-menu-flat,
+.btn-simple-flat {
+  border: none;
+  background-color: var(--white);
+}
+
+.btn-text-flat {
+  padding: 0;
+  color: var(--gray-500);
+}
+
+.btn-menu-flat {
+  padding: 0;
+  margin: 8px 8px 9px 0;
+  color: var(--gray-500);
+}
+
+.btn-simple-flat {
+  color: var(--blue-i500);
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.btn-menu-flat-selected {
+  border-bottom: 4px solid var(--blue-i500);
+  color: var(--blue-i500);
+  font-weight: bold;
+}
+
+.btn-menu-flat:hover {
+  border-bottom: 4px solid var(--blue-i500);
+}
+
+/* ---------- button-group ---------- */
+
+.btn-group-flex {
+  display: inline-flex;
+  gap: 10px;
+}

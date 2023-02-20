@@ -1,0 +1,46 @@
+/* ---------- input styles ---------- */
+.custom-input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #CED4DA;
+  border-radius: 4px;
+  margin: 12px;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: #FFFFFF;
+  color: #212529;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.custom-input:focus {
+  border-color: #86B7FE;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 .25rem rgb(13 110 253 / 25%);
+  color: #212529;
+  outline: 0;
+}
+
+/* ---------- Labels style ---------- */
+.custom-label {
+  min-width: 70px;
+  height: 26px;
+  color: gray;
+  font-size: 19px;
+}
+
+/* ---------- select box style ---------- */
+.custom-select {
+  width: 48px;
+  height: 34px;
+  margin-left: 9px;
+}
+
+.custom-select:focus {
+  border-color: #86B7FE;
+  box-shadow: 0 0 0 .25rem rgb(13 110 253 / 25%);
+  outline: 0;
+}

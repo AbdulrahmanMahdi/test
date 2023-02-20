@@ -1,0 +1,124 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "button.css";
+@import "input.css";
+@import "modal.css";
+@import "fonts.css";
+@import "alert.css";
+
+:root {
+  /* ---------- colors ---------- */
+  --white: #FFFFFF;
+  --blue-i900: #002A41;
+  --blue-i500: #0069A3;
+  --blue-i400: #4C95BE;
+  --blue-i300: #99C3DA;
+  --blue-i200: #D9E8F1;
+  --blue-i100: #E5F0F6;
+  --blue-i50: #F2F7FA;
+  --dark-blue-700: #282D3B;
+  --dark-blue-500: #394054;
+  --gray-500: #575756;
+  --gray-400: #898988;
+  --gray-300: #BCBCBB;
+  --gray-200: #EBEBEB;
+  --gray-150: #E2E2E2;
+  --gray-100: #F8F8F8;
+  --success-500: #458254;
+  --success-100: #F5F9F6;
+  --warning-500: #FC9403;
+  --warning-100: #FFFAF2;
+  --error-500: #DB1623;
+  --error-100: #FDF3F3;
+
+  /* ---------- sizes ---------- */
+  --header-height: 72px;
+  --footer-height: 64px;
+  --main-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+
+  /* ---------- font-sizes ---------- */
+  --h4: 24px;
+  --fs-badge: 12px;
+  --fs-body-1: 19px;
+  --fs-body-2: 16px;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--gray-500);
+  font-family: OpenSans, Helvetica, Arial, sans-serif;
+  font-size: var(--fs-body-1);
+}
+
+.fs-body-2 {
+  font-size: var(--fs-body-2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  color: var(--gray-500);
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+.rounded-pill-badge {
+  background-color: var(--dark-blue-500) !important;
+  font-size: var(--fs-badge);
+}
+
+.color-success {
+  color: var(--success-500);
+}
+
+.color-warning {
+  color: var(--warning-500);
+}
+
+.color-error {
+  color: var(--error-500);
+}
+
+.color-info {
+  color: var(--blue-i500);
+}
+
+.overlay {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000040;
+}
+
+.spinner-border-lg {
+  width: 7em;
+  height: 7em;
+}
+
+.dropzone {
+  height: auto;
+  padding-top: 12px;
+  border: 2px dotted var(--blue-i500);
+  border-radius: 30px;
+  margin: auto;
+  color: var(--gray-500);
+}

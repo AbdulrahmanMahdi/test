@@ -1,0 +1,151 @@
+{
+  "button": {
+    "incoming": "Posteingang",
+    "outgoing": "Postausgang",
+    "sentMessages": "Gesendete Nachrichten",
+    "drafts": "Entwürfe",
+    "archive": "Archiv",
+    "deletedMessages": "Gelöschte Nachrichten",
+    "help": "Hilfe",
+    "profile": "Profil",
+    "newMessage": "Neue Nachricht",
+    "resetFilter": "Filter Zurücksetzen",
+    "search": "Suchen",
+    "send": "Senden",
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "login": "Anmelden",
+    "all": "Alle ({{allMessages}})",
+    "unread": "Ungelesen ({{unreadMessages}})",
+    "reply": "Antworten",
+    "sendEeb": "eEB senden",
+    "message": "Nachricht",
+    "attachments": "Anhänge ({{attachments}})",
+    "addressBook": "Adressbuch",
+    "choose": "Wählen",
+    "addAttachment": "Anhänge hinzufügen",
+    "download": "Herunterladen",
+    "close": "Schließen",
+    "archiving": "Archivieren",
+    "messageHistory": "Nachrichtenverlauf",
+    "saveAsDraft": "Als Entwurf speichern",
+    "discardMessage": "Nachricht verwerfen",
+    "edit": "Bearbeiten"
+  },
+  "heading": {
+    "bebpoWebmail": "beBPo Webmail",
+    "messages": "Nachrichten",
+    "myMailbox": "Mein Postfach",
+    "otherMailboxes": "Weitere Postfächer",
+    "searchResult": "Suchergebnisse ",
+    "searchFilter": "Suche"
+  },
+  "footer": {
+    "copyright": "© 2023 Governikus GmbH & Co. KG"
+  },
+  "label": {
+    "message": "Nachricht",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "organization": "Organisation",
+    "organizationalUnit": "Organisationseinheit",
+    "postalCode": "Postleitzahl",
+    "safeID": "SAFE-ID",
+    "city": "Ort",
+    "from": "Von",
+    "to": "An",
+    "cc": "Cc",
+    "subject": "Betreff",
+    "itemsPerPage": "Einträge pro Seite",
+    "badgeNew": "neu",
+    "email": "E-Mail",
+    "externalID": "Externe ID (Gerichts-ID)",
+    "streetAndNumber": "Straße, Nr.",
+    "postalCodeAndCity": "Postleitzahl, Ort",
+    "federalStateAndC": "Bundesland, Land",
+    "phone": "Telefon",
+    "mobile": "Mobiltelefon",
+    "fax": "Fax",
+    "sender": "Absender",
+    "fileReference": "Aktenzeichen",
+    "receiver": "Empfänger",
+    "subjectArea": "Sachgebiet",
+    "kurzrubrum": "Kurzrubrum",
+    "subjectOfProceedings": "Verfahrensgegenstände",
+    "sendPriority": "Sendungspriorität",
+    "eebRequired": "eEB erforderlich",
+    "yes": "Ja",
+    "no": "Nein",
+    "fileSize": "Maximal 200 MB",
+    "dropAttachments": "Anhänge hier ziehen oder",
+    "selectMailbox": "Postfach wählen",
+    "pleaseSelect": "Bitte auswählen",
+    "role": "Rolle"
+  },
+  "table": {
+    "actions": "Aktionen",
+    "name": "Name",
+    "organization": "Organisation",
+    "organizationalUnit": "Organisationseinheit",
+    "city": "Ort",
+    "roles": "Rollen"
+  },
+  "placeholder": {
+    "search": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "city": "Ort",
+      "organization": "Organisation",
+      "organizationalUnit": "Organisationseinheit",
+      "postalCode": "Postleitzahl"
+    }
+  },
+  "title": {
+    "send": "Neue Nachricht senden",
+    "info": "Mehr Details anzeigen",
+    "safeSearch": "Adressbuch",
+    "accountInfo": "Visitenkarte",
+    "newMessage": "Neue Nachricht",
+    "replyMessage": "Antwort",
+    "shareMessage": "Weiterleitung"
+  },
+  "message": {
+    "warn": {
+      "eebRequired": "Ein elektronisches Empfangsbekenntnis (eEB) wird benötigt."
+    },
+    "info": {
+      "isCourt": "Erstellen Sie in der ERV-Xtension ein Strukturdatensatz und laden Sie die XML-Datei dann hier hoch.",
+      "pdfViewer": "Laden Sie sich das Dokument für eine vollständige Ansicht herunter.",
+      "draftCreated": "Ihre Nachricht wurde als Entwürf gespeichert."
+    },
+    "error": {
+      "fileExists": "Die Datei mit dem Namen '{{name}}' existiert bereits.",
+      "fileSize": "Die Datei mit dem Namen '{{name}}' ist groß.",
+      "draftError": "Beim erstellen eines Entwürfs ist ein Fehler aufgetreten.",
+      "newMessage": "Beim Versenden dieser Nachricht ist ein Fehler aufgetreten: '{{error}}'"
+    },
+    "success": {
+      "messageSent": "Ihre Nachricht wurde versandt"
+    }
+  },
+  "modal": {
+    "title": {
+      "deleteMsg": "Nachricht löschen",
+      "archiveMsg": "Nachricht archivieren",
+      "messageHistory": "Nachrichtenverlauf",
+      "createDraft": "Nachricht verwerfen"
+    },
+    "content": {
+      "deleteMsg": "Möchten Sie die Nachricht mit dem Betreff '{{subject}}' wirklich löschen?",
+      "archiveMsg": "Möchten Sie die Nachricht mit dem Betreff '{{subject}}' wirklich archivieren?",
+      "createDraft": "Wenn Sie die Seite verlassen, wird Ihre Nachricht automatisch als Entwurf gespeichert. Oder möchten Sie die Nachricht verwerfen?",
+      "archiveMsg": "Möchten Sie die Nachricht mit dem Betreff '{{subject}}' wirklich archivieren?"
+    }
+  },
+  "tooltip": {
+    "pdfZoomIn": "PDF vergrößern",
+    "pdfZoomOut": "PDF verkleinern",
+    "deleteMsg": "Nachricht löschen",
+    "forwardMsg": "Nachricht weiterleiten"
+  }
+}

@@ -1,0 +1,30 @@
+/* ---------- modal styles ---------- */
+.modal {
+  backdrop-filter: blur(4px);
+  background-color: rgb(255 255 255 / 15%);
+}
+
+.modal-header {
+  max-height: 55px;
+  background-color: var(--dark-blue-500);
+}
+
+.modal-title {
+  color: var(--white);
+}
+
+.modal-centered {
+  margin-top: 7rem;
+}
+
+.modal-button-dark {
+  border: none;
+  background-color: var(--dark-blue-500);
+  color: var(--white);
+}
+
+.modal-button-white {
+  border: none;
+  background-color: var(--white);
+  color: var(--gray-500);
+}

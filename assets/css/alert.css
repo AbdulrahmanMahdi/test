@@ -1,0 +1,28 @@
+/* custom styles for ngx-bootstrap alert */
+
+.alert-custom-success,
+.alert-custom-warning,
+.alert-custom-error {
+  padding: 24px;
+  border-radius: 4px;
+}
+
+.alert-custom-success {
+  border: 2px solid var(--success-500);
+  background-color: var(--success-100);
+}
+
+.alert-custom-warning {
+  border: 2px solid var(--warning-500);
+  background-color: var(--warning-100);
+}
+
+.alert-custom-error {
+  border: 2px solid var(--error-500);
+  background-color: var(--error-100);
+}
+
+.alert-custom-info {
+  border: 2px solid var(--blue-i400);
+  background-color: var(--white);
+}

@@ -1,0 +1,63 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "modal.css";
+@import "input.css";
+
+:root {
+  /* ---------- colors ---------- */
+  --white: #FFFFFF;
+  --blue-i200: #D9E8F1;
+  --blue-i300: #99C3DA;
+  --blue-i500: #0069A3;
+  --dark-blue-500: #394054;
+  --dark-blue-700: #282D3B;
+  --gray-300: #BCBCBB;
+  --gray-500: #575756;
+  --red-500: #bd4747;
+
+  /* ---------- sizes ---------- */
+  --header-height: 50px;
+  --footer-height: 50px;
+  --main-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 1.2rem;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 1.1rem;
+}
+
+.btn-primary-sm {
+  padding: 4px 24px;
+  border: none;
+  border-radius: 16px;
+  background-color: var(--blue-i500);
+  color: var(--white);
+  font-size: .9 rem;
+  margin: 2px;
+}
+
+.btn-danger-sm {
+  padding: 4px 24px;
+  border: none;
+  border-radius: 16px;
+  background-color: var(--red-500);
+  color: var(--white);
+  font-size: .9 rem;
+  margin: 2px;
+
+}
