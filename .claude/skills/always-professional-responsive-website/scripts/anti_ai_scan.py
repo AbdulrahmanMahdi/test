@@ -71,11 +71,11 @@ RULES: list[tuple[str, str, re.Pattern, str, set[str] | None]] = [
      "Icon in getönter Kreis- oder Quadrat-Plakette, das Standard-Feature-Muster.", None),
     # O Animationen
     ("O Animation", "inview", re.compile(r"\bwhileInView\b|data-aos=|\bScrollTrigger\b|\buseInView\b"),
-     "Scroll-Einblendung. Funktional oder nur Effekt?", None),
+     "Scroll-Einblendung. Hochwertig umgesetzt (kurz, ohne Unschärfe, Inhalt lesbar)?", None),
     ("O Animation", "loop", re.compile(r"\banimate-(bounce|pulse|ping|spin|float)\b|repeat\s*:\s*Infinity|animation[^;]*\binfinite\b"),
-     "Dauer-Animation. Ist sie nötig?", None),
+     "Endlos-Animation. Billig wirkend? Besser einmalig abspielen.", None),
     ("O Animation", "parallax", re.compile(r"parallax|useScroll\(|useTransform\(", I),
-     "Parallax oder scroll-gekoppelte Transformation.", None),
+     "Scroll-gekoppelte Bewegung. Ruckelfrei und Inhalt lesbar?", None),
     # C Cards
     ("C Card-Raster", "grid", re.compile(r"\b(sm:|md:|lg:|xl:)?grid-cols-(3|4|6)\b"),
      "Raster mit 3/4/6 Spalten. Wären Zeilen, Split oder Tabelle besser?", None),

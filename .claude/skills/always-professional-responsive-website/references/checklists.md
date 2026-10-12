@@ -28,7 +28,7 @@ Beantworte jede Frage mit „ok“ oder „Problem: <Stelle>“. **Zeigt mehr al
 9. Gibt es Icons ohne Informationswert?
 10. Gibt es KI-typische Marketingsätze, also Sätze, die auf jede andere Firmenseite passen würden?
 11. Gibt es zu viele CTAs, oder ist der primäre CTA unklar?
-12. Gibt es Animationen ohne Funktion?
+12. Sind die Animationen hochwertig (kurz, präzise, einmalig, Inhalt immer lesbar), oder wirken sie billig (Unschärfe, Endlos-Effekte, Wackeln)? Wurden bestehende Animationen ohne Rückfrage entfernt?
 13. Wirkt die Desktop-Navigation wie ein Template?
 14. Wirkt das Mobile-Menü hochwertig: gruppiert, ruhig, mit Kontaktweg?
 15. Ist der Footer individuell und auf das Unternehmen zugeschnitten?

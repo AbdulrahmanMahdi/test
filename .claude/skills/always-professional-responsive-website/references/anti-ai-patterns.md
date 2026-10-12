@@ -225,9 +225,22 @@ Optional kommt eine Vertrauenszeile mit echten Fakten dazu, zum Beispiel „DEKR
 
 ## O Animationen
 
-**Erlaubt:** Hover- und Fokus-Feedback, Öffnen und Schließen von Menü und Accordion, ein einmaliges dezentes Einblenden beim ersten Laden des Heros. Dauer 150 bis 300 ms, `ease-out`, nur `opacity` und `transform` animieren.
+Animationen sind erwünscht. Hier geht es nur um die **billige Ausführung**, nicht um die Animation an sich. Bestehende Animationen werden verbessert, nicht gestrichen.
 
-**Vermeiden:** jedes Element mit `whileInView` einfliegen lassen, Endlos-Floating, Parallax auf mehreren Ebenen, Counter-Animationen für Zahlen, Typewriter-Effekte, Magnet-Buttons, Cursor-Follower, Smooth-Scroll-Libraries ohne Grund.
+**Billig (vermeiden):** Elemente fliegen mit Unschärfe und großem Weg ein, Wort-für-Wort-Einflug bei jeder Überschrift, Endlos-Floating, Wackeln oder Pulsieren, Typewriter-Effekte, Text, der beim Scrollen halb transparent bleibt, Animationen über 0,6 s für einfache Reveals, Effekte, die auf Touch-Geräten stören.
+
+**Hochwertig (gern einsetzen):**
+
+| Effekt | Gute Umsetzung |
+|---|---|
+| Scroll-Reveal | einmalig, 0,3–0,4 s, 12–20 px nach oben, ohne Unschärfe, Listen leicht gestaffelt (50–80 ms) |
+| Zähler / Odometer | nur echte Zahlen, einmal beim Sichtbarwerden, Wert für Screenreader und Suchmaschinen im DOM |
+| Magnetische Buttons | Stärke 0,2–0,3, Federung, nur Maus/Stift |
+| Tilt | max. 6–10°, für Siegel, Zertifikate, Bewertungskarten; nie für Formulare |
+| Cursor-Spotlight | weicher Lichtkegel, optional Rahmen-Glühen in Markenfarbe, nur `pointer: fine` |
+| Fortschritt | Lesefortschritt oben, Ablauf-Linie füllt sich beim Scrollen; Schritte bleiben voll lesbar |
+| Foto-Zoom | Hover, ca. `scale(1.04)` über 0,8–0,9 s |
+| Aktiv-Indikator | gleitet zwischen Tabs oder Menüpunkten (layout animation) |
 
 ```css
 @media (prefers-reduced-motion: reduce) {

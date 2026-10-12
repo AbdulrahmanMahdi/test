@@ -130,7 +130,7 @@ Vollständige Don't/Do-Beispiele und Ausnahmen stehen in `references/anti-ai-pat
 | **L** Erfundene Zahlen („500+ Kunden“, „98 %“) | Echte, belegte Fakten oder nichts. Fehlende Daten als `[Vom Kunden zu liefern: …]` markieren. | Der Kunde hat die Zahl geliefert. |
 | **M** Floskeln („auf das nächste Level“, „Qualität, die überzeugt“) | Konkrete Aussagen zu Leistung, Ort, Ablauf, Dauer, Preis oder Garantie | – |
 | **N** CTA in jeder Section | Ein klarer primärer CTA, sichtbar in Header oder Sticky-Bar, dazu wenige gezielte Stellen | – |
-| **O** Animationen überall (Floating, Parallax, Fly-in) | Wenige, schnelle (150 bis 300 ms), funktionale Übergänge | Die Animation erklärt etwas oder gibt Feedback. |
+| **O** Billige Animationen (Unschärfe-Einflug, Endlos-Floating, Wackeln, Typewriter, Bewegung, die Lesbarkeit kostet) | Hochwertige, präzise Bewegung: kurze Scroll-Reveals, Zähler, Magnet- und Tilt-Effekte, Cursor-Spotlight, Fortschrittslinien, Foto-Zoom beim Hovern | Animationen sind **erwünscht**, wenn sie modern, ruhig und sauber umgesetzt sind. Entfernt wird nur die billige Ausführung, nicht die Animation an sich. |
 | **P** KI-Footer („Bereit für den nächsten Schritt?“, Newsletter, 4 Spalten, Social-Icons) | Footer mit dem, was Besucher dort suchen: Kontakt, Adresse, Öffnungszeiten, Impressum, Datenschutz | Newsletter oder Social-Kanäle existieren wirklich und werden gepflegt. |
 
 ## Texte
@@ -142,6 +142,22 @@ Texte wirken oft stärker „nach KI“ als das Layout.
 - **Branchensprache treffen:** sachlich für Gutachter und Kanzleien, nahbar für Handwerk und Gastronomie. Duzen oder Siezen wie im Bestand.
 - **Kurze Überschriften, die etwas aussagen.** „Was wir prüfen“ ist besser als „Unsere Expertise für Sie“.
 - **Kein Keyword-Stuffing.** Den Ort einmal natürlich in H1 und Title zu nennen reicht.
+
+## Animationen
+
+Animationen sind ausdrücklich erwünscht, wenn sie modern, interessant **und** hochwertig wirken. Das Ziel ist nicht eine statische Seite, sondern Bewegung, die sich präzise und gewollt anfühlt. Was KI-typisch wirkt, sind meist Gestaltungsmuster (riesige Überschriften, Nummern im Menü, Deko-Linien, Bullet-Listen), nicht die Animation selbst.
+
+**Bestehende Animationen nicht entfernen**, nur verbessern: Wenn ein Projekt bereits Animationen hat, behalte sie und korrigiere nur die Ausführung (zu langsam, Unschärfe, Lesbarkeit). Frage nach, bevor du einen Effekt komplett streichst.
+
+**Gute Beispiele:** einmalige Scroll-Reveals (0,3 bis 0,4 s, 12 bis 20 px, ohne Unschärfe), gestaffelte Listen, Zähler bzw. Odometer für echte Zahlen, magnetische Buttons, leichtes 3D-Tilt bei Siegeln oder Karten, Cursor-Spotlight auf Flächen, Lesefortschritt, Linien, die sich beim Scrollen füllen, Foto-Zoom beim Hovern, gleitende Aktiv-Indikatoren, kurze Seitenübergänge.
+
+**Qualitätskriterien:**
+- Inhalt bleibt jederzeit voll lesbar; Text wird nie dauerhaft transparent oder unscharf.
+- Kurz und präzise: Reveals 0,3 bis 0,4 s, Hover 0,2 bis 0,9 s, `ease-out`, nur `transform` und `opacity`.
+- Einmalig statt endlos: nichts pulsiert, wackelt oder schwebt dauerhaft.
+- Maus-Effekte (Magnet, Tilt, Spotlight) nur bei `pointer: fine`; Touch bleibt ruhig.
+- `prefers-reduced-motion` schaltet Bewegung ab, Inhalte bleiben sichtbar.
+- Kein Layout-Shift, kein Ruckeln, kein Effekt, der Klicks verzögert.
 
 ## Desktop und Mobile
 
@@ -178,7 +194,7 @@ Beide Formate sind gleichwertige Ziele. Typische Fehler und die Gegenmittel:
 
 - Bilder in AVIF oder WebP mit `srcset`/`sizes` bzw. der Framework-Bildkomponente, `width`/`height` oder `aspect-ratio` gesetzt, damit kein Layout-Shift entsteht, und `loading="lazy"` außer beim Hero-Bild. Das Hero-Bild bekommt `fetchpriority="high"`.
 - Fonts selbst hosten oder über das Framework laden, nur benötigte Gewichte, `font-display: swap`, passende Fallback-Metriken.
-- Keine Library für etwas, das CSS kann, etwa Scroll-Animationen, Accordions mit `<details>` oder Smooth Scroll. Prüfe vor jeder neuen Abhängigkeit, ob sie nötig ist.
+- Keine neue Library für etwas, das CSS oder eine bereits vorhandene Library kann, etwa Accordions mit `<details>`. Prüfe vor jeder neuen Abhängigkeit, ob sie nötig ist. Vorhandene Animations-Libraries (z. B. framer-motion) dürfen für hochwertige Animationen genutzt werden.
 - So viel wie möglich serverseitig oder statisch rendern, Client-JavaScript nur für echte Interaktion. In React keine unnötigen Re-Renders durch Inline-Objekte in Hot-Paths oder State für reine Ableitungen.
 
 ## SEO
@@ -201,7 +217,7 @@ Eine Website oder Section gilt erst als fertig, wenn alle Schritte erledigt sind
    > Wenn ich nicht wüsste, dass diese Website mit KI erstellt wurde: Würde ich sie für die individuelle Arbeit eines professionellen Webdesigners halten?
 
    Lautet die Antwort „nein“ oder „eher nein“, benenne konkret, woran es liegt (Layout, Typografie, Komponenten, Abstände, Texte oder Muster). Überarbeite das und prüfe erneut.
-8. **Gegenprobe gegen Überdesign:** Ist etwas hinzugekommen, das nur „modern“ wirken soll? Dann entfernen.
+8. **Gegenprobe gegen Überdesign:** Sind Gestaltungselemente hinzugekommen, die nur Platz füllen (Deko-Linien, Icons, Cards, Badges)? Dann entfernen. Animationen fallen nicht pauschal darunter: Sie bleiben, wenn sie hochwertig sind (siehe Muster O).
 
 Ist eine Prüfung in der Umgebung nicht möglich, weil zum Beispiel kein Browser oder kein Dev-Server verfügbar ist, sag das ausdrücklich im Bericht und behaupte nicht, dass sie bestanden ist.
 
