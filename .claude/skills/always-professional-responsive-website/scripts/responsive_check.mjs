@@ -89,6 +89,15 @@ function measure({ mobile }) {
         if (offenders.length >= 8) break;
       }
     }
+    // text that runs out of its own box (e.g. a long word in a heading) widens the page
+    // without the box itself being too wide, so name those elements explicitly
+    for (const el of document.body.querySelectorAll("h1,h2,h3,h4,p,a,span,li,dd,td,button")) {
+      if (el.scrollWidth > el.clientWidth + 1 && el.getBoundingClientRect().right + (el.scrollWidth - el.clientWidth) > vw + 1 &&
+          getComputedStyle(el).overflowX === "visible" && visible(el) && !clippedByAncestor(el)) {
+        offenders.unshift({ el: sel(el) + " (Text läuft über)", text: (el.innerText || "").trim().slice(0, 40), width: el.scrollWidth });
+        if (offenders.length >= 10) break;
+      }
+    }
   }
 
   const smallTargets = [];
@@ -96,6 +105,7 @@ function measure({ mobile }) {
     for (const el of document.querySelectorAll("a[href], button, input:not([type=hidden]), select, textarea, [role=button], summary")) {
       if (!visible(el)) continue;
       const r = el.getBoundingClientRect();
+      if (r.width <= 1 || r.height <= 1) continue; // visually hidden (e.g. skip link until focused)
       const inline = getComputedStyle(el).display === "inline" && el.closest("p, li, dd, td");
       if (inline) continue; // Links im Fließtext sind ausgenommen (WCAG 2.5.8)
       if (r.width < 44 || r.height < 44) {
@@ -128,7 +138,8 @@ function measure({ mobile }) {
   const imgs = [...document.images];
   const imgNoAlt = imgs.filter((i) => !i.hasAttribute("alt")).map((i) => i.currentSrc || i.src).slice(0, 8);
   const imgNoDims = imgs
-    .filter((i) => !(i.getAttribute("width") && i.getAttribute("height")) && getComputedStyle(i).aspectRatio === "auto")
+    // absolutely positioned images (e.g. next/image "fill") take their size from the container
+    .filter((i) => !(i.getAttribute("width") && i.getAttribute("height")) && getComputedStyle(i).aspectRatio === "auto" && getComputedStyle(i).position !== "absolute")
     .map((i) => i.currentSrc || i.src)
     .slice(0, 8);
 
@@ -239,7 +250,7 @@ async function main() {
       if (r.h1Count !== 1) flags.push(`${r.h1Count}× H1`);
       if (r.headingSkips.length) flags.push(`Überschriften-Sprung`);
       console.log(`${flags.length ? "!" : "✓"} ${head} ${r.url}  ${flags.join(" · ") || "ok"}`);
-      for (const o of r.offenders) console.log(`     overflow: ${o.el}  (left ${o.left}, right ${o.right}, width ${o.width})`);
+      for (const o of r.offenders) console.log(o.text !== undefined ? `     overflow: ${o.el} „${o.text}“ (width ${o.width})` : `     overflow: ${o.el}  (left ${o.left}, right ${o.right}, width ${o.width})`);
       for (const t of r.smallTargets.slice(0, 5)) console.log(`     touch:    ${t.el} „${t.text}“ ${t.w}×${t.h}`);
       for (const t of r.inputsUnder16) console.log(`     input:    ${t.el} ${t.size}px`);
       for (const t of r.smallBody.slice(0, 3)) console.log(`     text:     ${t.el} ${t.size}px „${t.text}“`);
