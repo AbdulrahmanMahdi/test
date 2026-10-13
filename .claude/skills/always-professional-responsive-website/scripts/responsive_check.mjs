@@ -2,7 +2,10 @@
 // Responsive- und Basis-Accessibility-Check mit Playwright.
 //
 // Aufruf:
-//   node responsive_check.mjs <url> [<url> …] [--out <ordner>] [--widths 320,375,…] [--no-shots] [--json]
+//   node responsive_check.mjs <url> [<url> …] [--out <ordner>] [--widths 320,375,…] [--no-shots] [--json] [--reduced-motion]
+//
+// Runs with animations enabled (like a normal visitor) so broken scroll
+// reveals show up; --reduced-motion checks the reduced-motion variant.
 //
 // Misst pro Breite: horizontales Overflow (mit Verursachern), Touch-Ziele < 44 px
 // (unter 768 px), Text < 14 px bzw. Fließtext < 16 px auf Mobile, Bilder ohne alt oder
@@ -20,13 +23,14 @@ import path from "node:path";
 const DEFAULT_WIDTHS = [320, 375, 390, 430, 768, 1024, 1280, 1440, 1920];
 
 function parseArgs(argv) {
-  const opts = { urls: [], out: "responsive-check", widths: DEFAULT_WIDTHS, shots: true, json: false };
+  const opts = { urls: [], out: "responsive-check", widths: DEFAULT_WIDTHS, shots: true, json: false, reducedMotion: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--out") opts.out = argv[++i];
     else if (a === "--widths") opts.widths = argv[++i].split(",").map(Number).filter(Boolean);
     else if (a === "--no-shots") opts.shots = false;
     else if (a === "--json") opts.json = true;
+    else if (a === "--reduced-motion") opts.reducedMotion = true;
     else if (a === "-h" || a === "--help") opts.help = true;
     else opts.urls.push(a);
   }
@@ -143,6 +147,21 @@ function measure({ mobile }) {
     .map((i) => i.currentSrc || i.src)
     .slice(0, 8);
 
+  // images that stay hidden after the page was scrolled through: fully clipped
+  // by a clip-path/inset mask or transparent (e.g. a scroll reveal that never fired)
+  const hiddenImgs = [];
+  for (const img of imgs) {
+    const r = img.getBoundingClientRect();
+    if (r.width < 40 || r.height < 40 || img.closest("[aria-hidden=true]")) continue;
+    let op = 1, clip = "";
+    for (let el = img; el && el !== document.body; el = el.parentElement) {
+      const cs = getComputedStyle(el);
+      op *= parseFloat(cs.opacity);
+      if (/inset\(\s*100%|inset\([^)]*\s100%\s*\)/.test(cs.clipPath)) clip = cs.clipPath;
+    }
+    if (op < 0.05 || clip) hiddenImgs.push({ src: (img.currentSrc || img.src).slice(-60), opacity: +op.toFixed(2), clip });
+  }
+
   const heads = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")].filter(visible).map((h) => ({ l: +h.tagName[1], t: h.innerText.trim().slice(0, 60) }));
   const skips = [];
   for (let k = 1; k < heads.length; k++) if (heads[k].l > heads[k - 1].l + 1) skips.push(`${"h" + heads[k - 1].l} → h${heads[k].l} „${heads[k].t}“`);
@@ -157,6 +176,7 @@ function measure({ mobile }) {
     inputsUnder16,
     imgNoAlt,
     imgNoDims,
+    hiddenImgs: hiddenImgs.slice(0, 6),
     h1Count: heads.filter((h) => h.l === 1).length,
     headingSkips: skips.slice(0, 6),
     hasMain: !!document.querySelector("main"),
@@ -171,7 +191,7 @@ function slug(url) {
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
   if (opts.help || !opts.urls.length) {
-    console.log("Aufruf: node responsive_check.mjs <url> [<url> …] [--out <ordner>] [--widths 320,375,…] [--no-shots] [--json]");
+    console.log("Aufruf: node responsive_check.mjs <url> [<url> …] [--out <ordner>] [--widths 320,375,…] [--no-shots] [--json] [--reduced-motion]");
     process.exit(opts.help ? 0 : 1);
   }
   const pw = await loadPlaywright();
@@ -202,7 +222,7 @@ async function main() {
         deviceScaleFactor: 1,
         isMobile: mobile,
         hasTouch: mobile,
-        reducedMotion: "reduce",
+        reducedMotion: opts.reducedMotion ? "reduce" : "no-preference",
       });
       const page = await ctx.newPage();
       const entry = { url, width };
@@ -214,10 +234,12 @@ async function main() {
       if (!entry.error) {
         // Lazy-Inhalte laden
         await page.evaluate(async () => {
-          for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); }
+          // smooth scrolling would swallow the programmatic jumps below
+          document.documentElement.style.scrollBehavior = "auto";
+          for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); }
           window.scrollTo(0, 0);
         });
-        await page.waitForTimeout(300);
+        await page.waitForTimeout(1600); // let scroll-triggered reveals finish
         Object.assign(entry, await page.evaluate(measure, { mobile }));
         if (opts.shots) {
           entry.screenshot = path.join(opts.out, `${slug(url)}_${width}.png`);
@@ -225,7 +247,7 @@ async function main() {
         }
       }
       const p = (entry.error ? 1 : 0) + (entry.overflowPx > 0 ? 1 : 0) + (entry.smallTargetsCount || 0) + (entry.inputsUnder16?.length || 0) +
-        (entry.imgNoAlt?.length || 0) + (entry.h1Count === 1 || entry.error ? 0 : 1) + (entry.headingSkips?.length || 0);
+        (entry.imgNoAlt?.length || 0) + (entry.hiddenImgs?.length || 0) + (entry.h1Count === 1 || entry.error ? 0 : 1) + (entry.headingSkips?.length || 0);
       problems += p;
       report.push(entry);
       await ctx.close();
@@ -246,6 +268,7 @@ async function main() {
       if (r.smallBody.length) flags.push(`Fließtext <16px`);
       if (r.tinyText.length) flags.push(`Text <12px`);
       if (r.imgNoAlt.length) flags.push(`${r.imgNoAlt.length} img ohne alt`);
+      if (r.hiddenImgs.length) flags.push(`${r.hiddenImgs.length} Bild(er) bleiben verdeckt`);
       if (r.imgNoDims.length) flags.push(`${r.imgNoDims.length} img ohne Maße`);
       if (r.h1Count !== 1) flags.push(`${r.h1Count}× H1`);
       if (r.headingSkips.length) flags.push(`Überschriften-Sprung`);
@@ -256,6 +279,7 @@ async function main() {
       for (const t of r.smallBody.slice(0, 3)) console.log(`     text:     ${t.el} ${t.size}px „${t.text}“`);
       for (const s of r.headingSkips) console.log(`     heading:  ${s}`);
       for (const s of r.imgNoAlt.slice(0, 3)) console.log(`     alt:      ${s}`);
+      for (const s of r.hiddenImgs) console.log(`     verdeckt: ${s.src} (opacity ${s.opacity}${s.clip ? ", " + s.clip : ""})`);
       for (const s of r.imgNoDims.slice(0, 3)) console.log(`     maße:     ${s}`);
     }
     const first = report.find((r) => !r.error);
