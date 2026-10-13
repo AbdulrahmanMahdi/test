@@ -15,6 +15,48 @@ Warum das so wichtig ist: Besucher haben inzwischen tausende generierte Landingp
 
 **Professionell heißt: weniger unnötige Elemente und bessere Entscheidungen.** Die Qualität entsteht durch Typografie, Raster, Weißraum, Bildsprache und klare Hierarchie, nicht durch mehr Effekte, Farben, Cards, Icons oder Rundungen.
 
+## Die Verbotsliste
+
+Diese Dinge will der Nutzer auf keiner seiner Websites sehen. Sie sind die typischen Erkennungszeichen einer KI-erstellten Seite. Prüfe jede Section dagegen, bevor du sie baust, und noch einmal im Quality Gate. Details und Alternativen stehen in `references/anti-ai-patterns.md`.
+
+**Aufbau und Layout**
+- Jede Section nach demselben Schema: zentrierte Überschrift, ein Satz, drei Karten, fünf- bis sechsmal untereinander
+- Karten für alles: abgerundete Boxen mit Schatten, Icon, Titel und zwei Zeilen Text, alles gleich gewichtet
+- Standard-Hero: riesige Überschrift, Untertitel, zwei Buttons nebeneinander, rechts Laptop-Mockup oder Stockfoto
+- Zahlenleiste wie „10+ Jahre · 500+ Kunden · 98 % Zufriedenheit“ ohne belegte Daten
+
+**Typografie und Details**
+- Überschriften, die nur groß sind, um „modern“ zu wirken
+- Kleines Label über der Überschrift, oft mit Linie davor („— ÜBER UNS“, Versalien, weite Laufweite)
+- Nummerierungen 01, 02, 03 vor Abschnitten, Leistungen oder Menüpunkten ohne echte Reihenfolge
+- Bullet-Listen mit Häkchen statt erklärender Sätze
+- Generische Icons (Schild, Blitz, Rakete, Häkchen) in farbigen Kreisen
+
+**Farben und Effekte**
+- Lila-Blau- oder Pink-Orange-Verläufe, verschwommene Farbflecken, Neon-Glow, Text mit Farbverlauf
+- Alles stark abgerundet (Pillen-Buttons, große Radien, überall derselbe Wert)
+- Schatten auf jedem Element
+- Unveränderte Framework-Standardfarben (z. B. Tailwind-Palette) statt Markenfarben
+
+**Texte und Inhalte**
+- Austauschbare Floskeln („auf das nächste Level“, „Qualität, die überzeugt“, „innovative Lösungen“, „Ihr zuverlässiger Partner“)
+- Erfundene Bewertungen, Kundennamen, Kundenlogos, Zertifikate, Garantien oder Zahlen
+- Kontakt-Button in jeder Section („Jetzt Kontakt aufnehmen“, „Mehr erfahren“)
+
+**Navigation und Footer**
+- Mobile-Menü als nummerierte Liste mit Linien und Pfeilen vor jedem Punkt
+- KI-Footer: Banner „Bereit für den nächsten Schritt?“, Newsletter, vier Linkspalten, Social-Icons für Kanäle, die es nicht gibt
+
+**Bilder**
+- Stockfotos ohne Bezug (Hände auf Tastatur, lächelndes Büroteam, Handschlag, Person mit Tablet) oder gar keine echten Bilder, nur Illustrationen und Icons
+
+**Mobile**
+- Desktop-Layout einfach untereinander gestapelt: endloses Scrollen durch Karten, zu kleine Buttons, Wörter, die über den Rand laufen
+
+**Nicht auf der Liste: Animationen.** Hochwertige Bewegung ist erwünscht. Verboten ist nur die billige Ausführung (Unschärfe-Einflug, Endlos-Schweben, Pulsieren, halb transparente Texte), siehe Abschnitt „Animationen“.
+
+**Der Kern:** Eine KI füllt Lücken mit dem Üblichen. Stelle bei jedem Element die Frage: „Warum genau so, für genau dieses Unternehmen?“ Gibt es keine Antwort, gehört es nicht auf die Seite.
+
 ## Prioritäten
 
 Wenn sich Ziele widersprechen, gilt diese Reihenfolge:
@@ -131,6 +173,7 @@ Vollständige Don't/Do-Beispiele und Ausnahmen stehen in `references/anti-ai-pat
 | **M** Floskeln („auf das nächste Level“, „Qualität, die überzeugt“) | Konkrete Aussagen zu Leistung, Ort, Ablauf, Dauer, Preis oder Garantie | – |
 | **N** CTA in jeder Section | Ein klarer primärer CTA, sichtbar in Header oder Sticky-Bar, dazu wenige gezielte Stellen | – |
 | **O** Billige Animationen (Unschärfe-Einflug, Endlos-Floating, Wackeln, Typewriter, Bewegung, die Lesbarkeit kostet) | Hochwertige, präzise Bewegung: kurze Scroll-Reveals, Zähler, Magnet- und Tilt-Effekte, Cursor-Spotlight, Fortschrittslinien, Foto-Zoom beim Hovern | Animationen sind **erwünscht**, wenn sie modern, ruhig und sauber umgesetzt sind. Entfernt wird nur die billige Ausführung, nicht die Animation an sich. |
+| **Q** Stockfotos ohne Bezug, Laptop-Mockups, nur Illustrationen | Echte Fotos von Team, Ort, Arbeit, Produkt. Ohne echtes Material lieber typografisch gestalten und Fotos als Platzhalter für den Kunden markieren. | Das Stockfoto zeigt konkret das Angebot und ist als solches nicht austauschbar. |
 | **P** KI-Footer („Bereit für den nächsten Schritt?“, Newsletter, 4 Spalten, Social-Icons) | Footer mit dem, was Besucher dort suchen: Kontakt, Adresse, Öffnungszeiten, Impressum, Datenschutz | Newsletter oder Social-Kanäle existieren wirklich und werden gepflegt. |
 
 ## Texte
@@ -211,7 +254,7 @@ Eine Website oder Section gilt erst als fertig, wenn alle Schritte erledigt sind
 2. **`anti_ai_scan.py`** ausführen und jeden Treffer bewerten: entfernen oder begründen.
 3. **`responsive_check.mjs`** gegen die laufende Seite ausführen, lokal per Dev-Server oder Preview. Overflow, Touch-Ziele und Überschriftenstruktur müssen sauber sein.
 4. **Screenshots ansehen,** mindestens 375 px, 768 px und 1440 px, außerdem das geöffnete Mobile-Menü. Bewerte sie wie ein Art Director: Ruhe, Ausrichtung, Rhythmus, Hierarchie, Konsistenz.
-5. **Anti-AI-Check:** die 25 Fragen aus `references/checklists.md`. Zeigen mehrere Antworten ein Problem, überarbeite die betroffenen Stellen und prüfe erneut.
+5. **Anti-AI-Check:** die 29 Fragen aus `references/checklists.md`. Zeigen mehrere Antworten ein Problem, überarbeite die betroffenen Stellen und prüfe erneut.
 6. **Accessibility-, Performance- und SEO-Checkliste** aus `references/checklists.md`.
 7. **Real-Designer-Test:**
    > Wenn ich nicht wüsste, dass diese Website mit KI erstellt wurde: Würde ich sie für die individuelle Arbeit eines professionellen Webdesigners halten?

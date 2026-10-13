@@ -20,6 +20,7 @@ Jedes Muster hat vier Teile: woran man es erkennt, warum es schadet, was stattde
 - [N CTA-Spam](#n-cta-spam)
 - [O Animationen](#o-animationen)
 - [P Footer](#p-footer)
+- [Q Bilder](#q-bilder)
 - [Gleichförmige Sections](#gleichförmige-sections)
 - [Praxisbeispiel: Kfz-Gutachter](#praxisbeispiel-kfz-gutachter)
 
@@ -173,6 +174,8 @@ Jedes Muster hat vier Teile: woran man es erkennt, warum es schadet, was stattde
 
 ## H Verläufe und Glow
 
+Auch: unveränderte Framework-Standardfarben (Tailwind-Blau, -Indigo, -Violett), die keinen Bezug zur Marke haben.
+
 **Erkennen:** `from-violet-500 to-fuchsia-500`, `from-indigo-600 via-purple-600`, `bg-gradient-to-r` auf Text, unscharfe Farbkleckse (`blur-3xl`) im Hintergrund, Neon-Ränder, „Aurora“-Hintergründe.
 
 **Regel:** Farben kommen aus der Marke. Flächige Farbe wirkt hochwertiger als ein Verlauf. Ein Verlauf ist zulässig, wenn er Teil der Markenidentität ist oder ganz subtil Ton in Ton bleibt, zum Beispiel ein dunkles Blau, das in ein etwas dunkleres Blau übergeht, um ein Bild zu überlagern und Text lesbar zu machen.
@@ -203,6 +206,8 @@ Optional kommt eine Vertrauenszeile mit echten Fakten dazu, zum Beispiel „DEKR
 ## L Erfundene Zahlen
 
 **Erkennen:** `10+ Jahre`, `500+ Kunden`, `98 % Zufriedenheit`, `24/7` ohne Beleg, Fake-Testimonials mit Vornamen und Stockfotos.
+
+Dazu gehören auch erfundene Kundenlogos („Trusted by“), Zertifikats-Siegel, Auszeichnungen und Garantien.
 
 **Regel:** Nur Zahlen und Stimmen verwenden, die der Kunde geliefert hat oder die öffentlich belegbar sind, etwa Google-Bewertungen über die API. Sonst einen Platzhalter setzen, zum Beispiel `[Vom Kunden zu liefern: Anzahl erstellter Gutachten]`, und ihn im Bericht auflisten. Es ist besser, keine Zahlenleiste zu haben als eine erfundene.
 
@@ -260,6 +265,19 @@ Animationen sind erwünscht. Hier geht es nur um die **billige Ausführung**, ni
 **Was Besucher im Footer suchen:** Kontakt (Telefon, E-Mail, Adresse), Öffnungszeiten oder Erreichbarkeit, eventuell eine Anfahrt, die wichtigsten Seiten, Impressum, Datenschutz, Cookie-Einstellungen. Für lokale Unternehmen wirkt ein kompakter Footer mit Adressblock, Öffnungszeiten und kurzer Seitenliste hochwertiger als ein Mega-Footer. Newsletter und Social-Icons nur, wenn es sie tatsächlich gibt und sie gepflegt werden.
 
 ---
+
+## Q Bilder
+
+**Erkennen:** Stockfotos ohne Bezug zum Unternehmen (Hände auf Laptop, lächelndes Team im Großraumbüro, Handschlag, Businessperson mit Tablet, Glühbirne, Puzzleteile), Laptop- oder Smartphone-Mockups im Hero, Bilder von Unsplash/Pexels/Picsum als Dauerlösung, oder eine Seite ganz ohne Fotos, nur mit Illustrationen und Icons.
+
+**Warum es schadet:** Besucher erkennen Stockfotos sofort. Sie zeigen nicht dieses Unternehmen, also beweisen sie nichts, und die Seite wirkt austauschbar.
+
+**Stattdessen:**
+- Echte Fotos vom Team, vom Ort, von der Arbeit und vom Ergebnis, passend zugeschnitten (Desktop und Mobile getrennt).
+- Fehlt echtes Material: Seite typografisch tragen lassen, Bildflächen als `[Vom Kunden zu liefern: Foto der Werkstatt]` markieren und im Bericht auflisten.
+- Bildstil einheitlich halten (Licht, Farbton, Ausschnitt).
+
+**Erlaubt, wenn** ein Stockfoto konkret das Angebot zeigt (z. B. ein bestimmtes Fahrzeugmodell) und kein generisches „Business“-Motiv ist.
 
 ## Gleichförmige Sections
 
