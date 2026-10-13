@@ -201,6 +201,8 @@ Animationen sind ausdrücklich erwünscht, wenn sie modern, interessant **und** 
 - Maus-Effekte (Magnet, Tilt, Spotlight) nur bei `pointer: fine`; Touch bleibt ruhig.
 - `prefers-reduced-motion` schaltet Bewegung ab, Inhalte bleiben sichtbar.
 - Kein Layout-Shift, kein Ruckeln, kein Effekt, der Klicks verzögert.
+- Scroll-Trigger nie auf das Element legen, das selbst per `clip-path` oder `opacity: 0` versteckt ist: Der IntersectionObserver hält es für unsichtbar und löst nie aus. Beobachte einen unverdeckten Wrapper.
+- Nach dem Einbau mit Animationen testen (nicht nur mit „Bewegung reduzieren“): Seite komplett durchscrollen und prüfen, dass alle Bilder und Texte sichtbar sind. `responsive_check.mjs` macht das standardmäßig und meldet dauerhaft verdeckte Bilder.
 
 ## Desktop und Mobile
 
