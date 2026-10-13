@@ -209,6 +209,7 @@ def scan(root: str, max_hits: int):
         "files_scanned": files_scanned,
         "counts": dict(sorted(counts.items())),
         "hits": {k: hits[k] for k in sorted(hits)},
+        "hints": hints,
         "notes": notes,
     }
 
@@ -222,8 +223,9 @@ def print_report(res: dict):
     for cat, n in res["counts"].items():
         print(f"  {cat:<16} {n:>4}")
     print()
-    for cat, items in res["hits"].items():
-        print(f"## {cat}  ({res['counts'][cat]} Treffer)  {items[0]['hint']}")
+    for cat in res["counts"]:
+        items = res["hits"].get(cat, [])
+        print(f"## {cat}  ({res['counts'][cat]} Treffer)  {res['hints'][cat]}")
         for h in items:
             print(f"   {h['file']}:{h['line']}  {h['text']}")
         if res["counts"][cat] > len(items):

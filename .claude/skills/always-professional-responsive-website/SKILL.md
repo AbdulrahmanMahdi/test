@@ -192,7 +192,7 @@ Animationen sind ausdrücklich erwünscht, wenn sie modern, interessant **und** 
 
 **Bestehende Animationen nicht entfernen**, nur verbessern: Wenn ein Projekt bereits Animationen hat, behalte sie und korrigiere nur die Ausführung (zu langsam, Unschärfe, Lesbarkeit). Frage nach, bevor du einen Effekt komplett streichst.
 
-**Gute Beispiele:** einmalige Scroll-Reveals (0,3 bis 0,4 s, 12 bis 20 px, ohne Unschärfe), gestaffelte Listen, Zähler bzw. Odometer für echte Zahlen, magnetische Buttons, leichtes 3D-Tilt bei Siegeln oder Karten, Cursor-Spotlight auf Flächen, Lesefortschritt, Linien, die sich beim Scrollen füllen, Foto-Zoom beim Hovern, gleitende Aktiv-Indikatoren, kurze Seitenübergänge.
+**Gute Beispiele:** einmalige Scroll-Reveals (0,3 bis 0,4 s, 12 bis 20 px, ohne Unschärfe), gestaffelte Listen, Zähler bzw. Odometer für echte Zahlen, magnetische Buttons, leichtes 3D-Tilt bei Siegeln oder Karten, Cursor-Spotlight auf Flächen, Lesefortschritt, Linien, die sich beim Scrollen füllen, Foto-Zoom beim Hovern, gleitende Aktiv-Indikatoren, kurze Seitenübergänge, Stempel-Effekt für Siegel und Zertifikate, Bild-Enthüllung per `clip-path`, zeilenweise Masken-Reveals für die Hero-Headline, gleitende Link-Unterstreichung.
 
 **Qualitätskriterien:**
 - Inhalt bleibt jederzeit voll lesbar; Text wird nie dauerhaft transparent oder unscharf.

@@ -246,6 +246,11 @@ Animationen sind erwünscht. Hier geht es nur um die **billige Ausführung**, ni
 | Fortschritt | Lesefortschritt oben, Ablauf-Linie füllt sich beim Scrollen; Schritte bleiben voll lesbar |
 | Foto-Zoom | Hover, ca. `scale(1.04)` über 0,8–0,9 s |
 | Aktiv-Indikator | gleitet zwischen Tabs oder Menüpunkten (layout animation) |
+| Stempel für Siegel | Zertifikat fällt beim ersten Sichtbarwerden schräg auf die Seite, staucht kurz, Tinten-Ring in Markenfarbe, bleibt leicht gedreht liegen; Elternbereich mit `overflow-x: clip`, damit Mobile nicht seitlich scrollt |
+| Bild-Enthüllung | `clip-path` legt das Foto von unten frei (ca. 0,9 s), Foto zoomt dabei von 1,12 auf 1; Container behält seine Größe |
+| Headline-Masken | Hero-Zeilen gleiten einmal aus ihrer eigenen Maske nach oben (zeilenweise, nicht Wort für Wort) |
+| Scroll-Zoom | große Fotos zoomen beim Hereinscrollen sanft heraus (CSS `animation-timeline: view()`, ohne Unterstützung statisch) |
+| Link-Unterstreichung | gleitet beim Hovern von unten in Position (`text-underline-offset` + `text-decoration-color`) |
 
 ```css
 @media (prefers-reduced-motion: reduce) {
