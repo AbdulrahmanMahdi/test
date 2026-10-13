@@ -4,7 +4,7 @@ Hake jede Checkliste im Quality Gate tatsächlich ab. Einen Punkt, den du in der
 
 ## Inhalt
 
-- [Anti-AI-Check (25 Fragen)](#anti-ai-check-25-fragen)
+- [Anti-AI-Check (29 Fragen)](#anti-ai-check-29-fragen)
 - [Responsive-Check pro Breite](#responsive-check-pro-breite)
 - [Accessibility](#accessibility)
 - [Performance](#performance)
@@ -13,7 +13,7 @@ Hake jede Checkliste im Quality Gate tatsächlich ab. Einen Punkt, den du in der
 
 ---
 
-## Anti-AI-Check (25 Fragen)
+## Anti-AI-Check (29 Fragen)
 
 Beantworte jede Frage mit „ok“ oder „Problem: <Stelle>“. **Zeigt mehr als eine Frage ein Problem, überarbeite die Stellen und gehe die Liste danach erneut durch.** Ein einzelnes Problem behebst du direkt.
 
@@ -42,6 +42,11 @@ Beantworte jede Frage mit „ok“ oder „Problem: <Stelle>“. **Zeigt mehr al
 23. Gibt es zu viel leeren Raum, zum Beispiel Sections, die auf Mobile wie leere Bildschirme wirken?
 24. Gibt es horizontales Scrollen auf Mobile (320 bis 430 px)?
 25. Sind Buttons und Formulare auf Mobile gut bedienbar (≥ 44 px, 16-px-Schrift, passende Tastatur)?
+
+26. Gibt es Stockfotos ohne Bezug, Laptop-Mockups oder nur Illustrationen statt echter Bilder?
+27. Gibt es erfundene Bewertungen, Kundenlogos, Siegel oder Zahlenleisten?
+28. Werden unveränderte Framework-Standardfarben statt Markenfarben verwendet?
+29. Folgt eine Section dem Schema „zentrierte Überschrift, Satz, drei Karten“?
 
 Zusätzlich: Sind alle Zahlen, Bewertungen und Fakten belegt oder als Platzhalter markiert?
 

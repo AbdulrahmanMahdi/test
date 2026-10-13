@@ -79,6 +79,15 @@ RULES: list[tuple[str, str, re.Pattern, str, set[str] | None]] = [
     # C Cards
     ("C Card-Raster", "grid", re.compile(r"\b(sm:|md:|lg:|xl:)?grid-cols-(3|4|6)\b"),
      "Raster mit 3/4/6 Spalten. Wären Zeilen, Split oder Tabelle besser?", None),
+    # Q Bilder
+    ("Q Bilder", "stock", re.compile(r"unsplash\.com|images\.pexels|pexels\.com|pixabay|picsum\.photos|placehold(\.co|er\.com)|via\.placeholder|shutterstock|istockphoto|gettyimages|[\w-]*(stock|mockup|laptop|handshake|business-?team)[\w-]*\.(jpe?g|png|webp|avif)", I),
+     "Stockfoto, Mockup oder Platzhalterbild. Zeigt es wirklich dieses Unternehmen?", None),
+    # H Framework-Standardfarben (Tailwind-Default-Palette)
+    ("H Verlauf/Glow", "tw-default", re.compile(r"\b(bg|text|from|to|via|border)-(indigo|violet|purple|blue|sky|cyan|fuchsia)-(400|500|600|700)\b"),
+     "Tailwind-Standardfarbe. Kommt sie aus der Marke?", None),
+    # L Erfundene Bewertungen / Logos
+    ("L Zahl prüfen", "trusted", re.compile(r"trusted by|vertrauen uns|unsere kunden sagen|what our (clients|customers) say|testimonials?\b", I),
+     "Kundenstimmen/Logos. Echt und vom Kunden geliefert?", None),
     # A11y-Grundfehler
     ("A11y", "outline-none", re.compile(r"\boutline-none\b|outline\s*:\s*(none|0)\b"),
      "Fokus-Outline entfernt. Gibt es einen :focus-visible-Ersatz?", None),
